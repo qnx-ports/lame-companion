@@ -3,7 +3,7 @@
 
 pkgname=lame
 pkgver=3.100
-pkgrel=0
+pkgrel=${pkgrel:-0}
 pkgdesc="An MP3 encoder and graphical frame analyzer"
 url="https://lame.sourceforge.net/"
 arch="all"
@@ -50,6 +50,7 @@ package() {
         > "$pkgdir"/usr/lib/pkgconfig/lame.pc
 }
 
+options="$options ${DISABLE_CHECK:+!check}"
 sha512sums="
 0844b9eadb4aacf8000444621451277de365041cc1d97b7f7a589da0b7a23899310afd4e4d81114b9912aa97832621d20588034715573d417b2923948c08634b  lame-3.100.tar.gz
 ace7813debdb2cd8b08c26e99db50776180b05105832db96ad0bb314dc3e1eadccfd14de3adab7b1a37b6df7d521b5216ed7d9c3c11d5bae388197debca58f0f  lame.pc.in
